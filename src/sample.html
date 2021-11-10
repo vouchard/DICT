@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <select id="selectType">
+        <option>select if fruit or veggies</option>
+        <option>Fruits</option>
+        <option>Vegetables</option>
+    </select>
+    <button type="button" onclick="myFunction()">Submit</button>
+    <select id="selectTypeOf">
+        <option>Choose a specific</option>
+    </select>
+</div>
+</body>
+<script>
+var select = document.getElementById("selectType");
+
+
+
+function removeOptions(selectElement) {
+   var i, L = selectElement.options.length - 1;
+   for(i = L; i >= 0; i--) {
+      selectElement.remove(i);
+   }
+}
+
+
+function myFunction() {
+  var typeSelected = document.getElementById("selectType")
+  var drpSpecifics = document.getElementById("selectTypeOf")
+  var fruits = ["Mango", "Peach", "Grapes", "Strawberry", "Orange"]
+  var vegetables = ["Brocolli","Lettuce","Carrot","Potato","Cabbage"]
+
+  if (typeSelected.value == "Fruits"){
+    removeOptions(drpSpecifics);
+    for(var i = 0; i < fruits.length; i++) {
+    var opt = fruits[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    drpSpecifics.appendChild(el);
+        }
+    }
+    if (typeSelected.value == "Vegetables"){
+    removeOptions(drpSpecifics);
+    for(var i = 0; i < vegetables.length; i++) {
+    var opt = vegetables[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    drpSpecifics.appendChild(el);
+        }
+    }
+
+
+}
+</script>
+</html>
